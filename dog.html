@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>my dogs</title>
-    <script src="prototype.js" type="text/javascript"></script>
+    <script src="js/lib/prototype.js" type="text/javascript"></script>
+    <script src="js/Speroteck/dogs.js"></script>
 </head>
 <body>
 <p>Helper <br />
@@ -13,46 +14,5 @@ To call dog: your_name.comeHere(dog_name)<br />
 To sell dog: your_name.sellDog('dog_name')<br />
 To give voice command: dog_name.voice()
 </p>
-<script type="text/javascript">
-    var Master = Class.create({
-        masterName : '',
-        dog : [],
-        initialize: function(name) {
-            this.masterName = name;
-            console.log ('Master name is ' + this.masterName + '. Hello!');
-        },
-
-        showAllDogs: function() {
-            console.log ('Your dogs are: ' + this.dog)
-        },
-
-        sellDog: function(name){
-            this.dog.splice(this.dog.indexOf(name), 1);
-            console.log('You sold ' + name + ' and now you have only: ' + this.dog);
-        },
-
-        comeHere: function(name) {
-            if (this.dog.indexOf(name)){
-                console.log (name + ' is running to his master ' + this.masterName)
-            } else {
-                console.log ('There is no dog with ' + name + ' name')
-            }
-        }
-    });
-
-    var Dog = Class.create({
-        dogName : '',
-        initialize: function(name, master) {
-            this.dogName = name;
-            this.masterName = master.masterName;
-            master.dog.push(this.dogName);
-            console.log (this.masterName + ' has bought a dog. Dog name is: ' + this.dogName)
-        },
-
-        voice: function(){
-            console.log(this.dogName + ' woof woof');
-        }
-    });
-</script>
 </body>
 </html>
